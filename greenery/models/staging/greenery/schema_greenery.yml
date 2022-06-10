@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: stg_greenery_address
+    description: Contains address information for users. 
+    columns:
+      - name: address_id
+        tests:
+          - unqiue
+      - name: zip_code
+        tests:
+          - positive_values
+  - name: stg_greenery_events
+    description: Contains information on interactions with site. 
+    columns:
+      - name: event_id
+        tests:
+          - unique
+
+  - name: stg_greenery_order_items
+    description: Contains information on number of items ordered. 
+    columns:
+      - name: quantity
+        tests:
+          - not_null
+
+  - name: stg_greenery_orders
+    description: Contains information on order costs, placement time, and shipping. 
+    columns:
+      - name: order_cost
+        tests:
+          - positive_values
+          - not_null
+      - name: created_at
+        tests:
+          - not_null
+
+  - name: stg_greenery_products
+    description: Contains information on products, including price and inventory.
+    columns:
+      - name: product_id
+        tests:
+          - unique
+
+  - name: stg_greenery_products
+    description: Contains information on products, including price and inventory.
+    columns:
+      - name: product_id
+        tests:
+          - unique
+
+  - name: stg_greenery_promos
+    description: Contains information on promotions and discounts.
+    columns:
+      - name: price_discount
+        tests:
+          - positive_values
+          
+  - name: stg_greenery_users
+    description: Contains information on users.
+    columns:
+      - name: user_id
+        tests:
+          - unique
