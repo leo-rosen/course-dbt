@@ -11,12 +11,14 @@ FROM dbt_leo_r.stg_greenery_users
 
 ```
 SELECT
-count(order_id) / (DATE_PART('day', max(created_at) - min(created_at)) * 24 +
-DATE_PART('hour', max(created_at)) - DATE_PART('hour',min(created_at))) as orders_per_hour
+count(order_id) / ((date_part('day',age(max(created_at),min(created_at)))*24) +
+(date_part('hour',age(max(created_at),min(created_at)))) +
+(date_part('minutes',age(max(created_at),min(created_at)))/60) +
+(date_part('seconds',age(max(created_at),min(created_at)))/3600))
 FROM dbt_leo_r.stg_greenery_orders
 ```
 
-=> 7.680851063829787
+=> 7.532559366142897
 
 ### 3.3 On average, how long does an order take from being placed to being delivered?
 
@@ -63,9 +65,11 @@ HAVING count(order_id) >= 3
 
 ```
 SELECT 
-count(distinct session_id) /(DATE_PART('day', max(created_at) - min(created_at)) * 24 +
-DATE_PART('hour', max(created_at)) - DATE_PART('hour',min(created_at)))
+count(distinct session_id) / (date_part('day',age(max(created_at),min(created_at))*24) +
+(date_part('hour',age(max(created_at),min(created_at)))) +
+(date_part('minutes',age(max(created_at),min(created_at)))/60) +
+(date_part('seconds',age(max(created_at),min(created_at)))/3600))
 FROM dbt_leo_r.stg_greenery_events
 ```
 
-=> 17.515151515151516
+=> 10.138967392363616
