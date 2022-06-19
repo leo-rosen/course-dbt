@@ -62,3 +62,10 @@ models:
       - name: user_id
         tests:
           - unique
+
+  - name: fact_user_orders
+    description: Contains information on orders at the user level.
+    columns:
+      - name: total_amount_spent
+        tests:
+          - positive_values
