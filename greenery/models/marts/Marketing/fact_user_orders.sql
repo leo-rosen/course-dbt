@@ -21,4 +21,4 @@ LEFT JOIN {{ ref('dim_users') }} AS U
   ON O.user_id = U.user_id
 LEFT JOIN {{ ref('int_first_and_most_recent_user_order') }} AS R
   ON O.user_id = R.user_id
-GROUP BY 1,2,3,4,5,6
+{{dbt_utils.group_by(n=6) }}

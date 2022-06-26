@@ -42,12 +42,6 @@ models:
         tests:
           - unique
 
-  - name: stg_greenery_products
-    description: Contains information on products, including price and inventory.
-    columns:
-      - name: product_id
-        tests:
-          - unique
 
   - name: stg_greenery_promos
     description: Contains information on promotions and discounts.

@@ -11,8 +11,7 @@ SELECT
   Products.inventory,
   Products.quantity_sold,
   PageViews.number_of_page_views,
-  PageViews.number_of_add_to_carts,
-  PageViews.number_of_add_to_carts / PageViews.number_of_page_views as sale_conversion_rate
+  PageViews.number_of_add_to_carts
 FROM {{ ref('dim_products') }} AS Products
 LEFT JOIN {{ ref('int_page_views') }} AS PageViews
     ON Products.product_id = PageViews.product_id

@@ -1,0 +1,44 @@
+version: 2
+
+macros:
+- name: sum_if_equal
+  description:
+      Use this function to sum chosen values if column is equal to certain value.
+      Equal to value must be a string. True_value and false_value are user chosen numeric (int or float) values.
+  arguments:
+      - name: column_name
+        description: apply condition to this column
+      - name: equal_to
+        description: condition value. Must be a string.
+      - name: true_value
+        description: value if condition is true. Must be numeric.
+      - name: false_value
+        description: value if condition is false. Must be numeric.
+        
+- name: sum_if_greater_than
+  description:
+      Use this function to sum chosen values if column is greater a certain value.
+      Equal to value must be a numeric (int or float). True_value and false_value are user chosen numeric (int or float) values.
+  arguments:
+      - name: column_name
+        description: apply condition to this column
+      - name: equal_to
+        description: condition value. Must be numeric.
+      - name: true_value
+        description: value if condition is true. Must be numeric.
+      - name: false_value
+        description: value if condition is false. Must be numeric.
+
+- name: sum_if_equal_choose_sum_column
+  description:
+      Use this function to sum chosen values if column is equal to a certain value.
+      Equal to value must be a string. True_value and false_value are user chosen columns.
+  arguments:
+      - name: column_name
+        description: apply condition to this column
+      - name: equal_to
+        description: condition value. Must be numeric.
+      - name: true_value
+        description: value if condition is true. Must be numeric.
+      - name: false_value
+        description: value if condition is false. Must be numeric.
