@@ -36,6 +36,7 @@ ON oi.product_id = pname.product_id
 WHERE p.product_id IS NOT NULL
 GROUP BY p.product_id,pname.name
 ```
+
 |product name|conversion rate|
 |---|---|
 |Bird of Paradise|45|
